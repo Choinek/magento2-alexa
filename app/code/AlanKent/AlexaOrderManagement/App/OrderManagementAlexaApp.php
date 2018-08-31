@@ -267,6 +267,6 @@ class OrderManagementAlexaApp implements AlexaApplicationInterface
      */
     private function pluralize($n, $singular, $plural)
     {
-        return ((string)$n) . " " . ($n == 1) ? $singular : $plural;
+        return ((string)$n) . " " . (($n == 1) ? $singular : $plural);
     }
 }
