@@ -18,11 +18,18 @@ class SchemaLocator implements \Magento\Framework\Config\SchemaLocatorInterface
     private $perFileSchema;
 
     /**
+     * Path to corresponding XSD file with validation rules for config
+     *
+     * @var string
+     */
+    private $schema;
+
+    /**
      * @param Reader $moduleReader
      */
     public function __construct(Reader $moduleReader)
     {
-        $this->perFileSchema = $moduleReader->getModuleDir(Dir::MODULE_ETC_DIR, 'AlexKent_Alexa')
+        $this->perFileSchema = $this->schema = $moduleReader->getModuleDir(Dir::MODULE_ETC_DIR, 'AlanKent_Alexa')
             . '/alexa/alexa_routers.xsd';
     }
 
@@ -31,7 +38,7 @@ class SchemaLocator implements \Magento\Framework\Config\SchemaLocatorInterface
      */
     public function getSchema()
     {
-        return null;
+        return $this->schema;
     }
 
     /**

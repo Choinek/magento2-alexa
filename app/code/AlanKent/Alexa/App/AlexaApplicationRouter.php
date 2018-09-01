@@ -2,7 +2,9 @@
 
 namespace AlanKent\Alexa\App;
 
+
 use AlanKent\Alexa\Model\AlexaRouter\Config\Data;
+use Magento\Framework\ObjectManagerInterface;
 
 /**
  * Used to collect Alexa Listeners and use proper one to handle request
@@ -15,16 +17,22 @@ class AlexaApplicationRouter implements AlexaApplicationInterface
     /** @var Data */
     private $configData;
 
+    /** @var ObjectManagerInterface */
+    private $objectManager;
+
     /**
      * Constructor.
      * @param ResponseDataFactory $responseDataFactory
      * @param Data $configData
+     * @param ObjectManagerInterface $objectManager
      */
     public function __construct(ResponseDataFactory $responseDataFactory,
-                                Data $configData)
+                                Data $configData,
+                                ObjectManagerInterface $objectManager)
     {
         $this->responseDataFactory = $responseDataFactory;
         $this->configData = $configData;
+        $this->objectManager = $objectManager;
     }
 
     /**
@@ -48,16 +56,18 @@ class AlexaApplicationRouter implements AlexaApplicationInterface
                                   $intentName,
                                   $slots)
     {
-        $intents = $this->configData->get('alexaRouter/intents');
+        /** @var AlexaApplicationInterface $handler */
+        $handler = false;
+        if ($intents = $this->configData->get('alexaRouter/intents')) {
+            if (array_key_exists($intentName, $intents)) {
+                $handler = $this->objectManager->get($intents[$intentName]);
+            } elseif ($default = $this->configData->get('alexaRouter/default')) {
+                $handler = $this->objectManager->get($default);
+            }
 
-        if (array_key_exists($intentName, $intents)) {
-
-            /** @todo handle class factory */
-
-        } elseif ($default = $this->configData->get('alexaRouter/default')) {
-
-            /** @todo handle class factory */
-
+            if ($handler) {
+                return $handler->intentRequest($sessionData, $customerData, $intentName, $slots);
+            }
         }
 
         $response = $this->responseDataFactory->create();
