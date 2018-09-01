@@ -1,5 +1,5 @@
 {
-  "name": "alankent/alexa-store-online",
+  "name": "alankent/alexa-order-management",
   "description": "A simple Alexa appilcation checking that store is online.",
   "type": "magento2-module",
   "version": "0.1.0",
@@ -9,10 +9,12 @@
   ],
   "require": {
     "alankent/alexa": "*",
-    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "php": "~5.6.0 || ~7.0",
     "magento/framework": "~100.0"
   },
   "autoload": {
-    "files": [ "registration.php" ]
+    "files": [
+      "registration.php"
+    ]
   }
 }
