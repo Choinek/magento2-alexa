@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="AlanKent\Alexa\App\AlexaApplicationInterface"
-                type="AlanKent\AlexaOrderManagement\App\OrderManagementAlexaApp" />
+    <!--<preference for="AlanKent\Alexa\App\AlexaApplicationInterface"-->
+    <!--    type="AlanKent\AlexaOrderManagement\App\OrderManagementAlexaApp" /> could be optionally used as main app instead of router -->
 </config>
-
