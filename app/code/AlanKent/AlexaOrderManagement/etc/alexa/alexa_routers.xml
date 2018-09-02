@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:AlanKent_Alexa:etc/alexa/alexa_routers.xsd">
-    <alexaRouter name="order_management" type="AlanKent\AlexaOrderManagement\App\OrderManagementAlexaApp" default="true">
-        <intents>
-            <intent>ReportOrderCount</intent>
-            <intent>FindNextOrder</intent>
-            <intent>FirstOrderItem</intent>
-            <intent>NextOrderItem</intent>
-            <intent>MarkOrderAsDone</intent>
-        </intents>
+    <alexaRouter name="order_management" type="AlanKent\AlexaOrderManagement\App\OrderManagementAlexaApp"
+                 default="true">
+        <intent value="ReportOrderCount"/>
+        <intent value="FindNextOrder"/>
+        <intent value="FirstOrderItem"/>
+        <intent value="NextOrderItem"/>
+        <intent value="MarkOrderAsDone"/>
     </alexaRouter>
 </config>

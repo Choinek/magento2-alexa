@@ -16,7 +16,7 @@ class Reader extends \Magento\Framework\Config\Reader\Filesystem
      *
      * @var array
      */
-    protected $_idAttributes = ['/config/alexaRouters/alexaRouter' => 'name'];
+    protected $_idAttributes = ['/config/alexaRouter' => 'name'];
 
     /**
      * Construct the FileSystem Reader Class

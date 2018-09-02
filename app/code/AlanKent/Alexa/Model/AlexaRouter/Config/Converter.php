@@ -35,6 +35,7 @@ class Converter implements \Magento\Framework\Config\ConverterInterface
     {
         $xpath = new \DOMXPath($source);
         $output = [];
+
         foreach ($xpath->evaluate('/config/alexaRouter') as $typeNode) {
             if ($typeNode->getAttribute('default')) {
                 $output['alexaRouter']['default'] = $typeNode->getAttribute('type');
@@ -45,16 +46,8 @@ class Converter implements \Magento\Framework\Config\ConverterInterface
                     continue;
                 }
 
-                if ($childNode->tagName === 'intents') {
-                    foreach ($childNode->childNodes as $node) {
-                        if ($node->nodeType != XML_ELEMENT_NODE) {
-                            continue;
-                        }
-
-                        if ($node->tagName === 'intent') {
-                            $output['alexaRouter']['intents'][$node->nodeValue] = $typeNode->getAttribute('type');
-                        }
-                    }
+                if ($childNode->tagName === 'intent') {
+                    $output['alexaRouter']['intents'][$childNode->getAttribute('value')] = $typeNode->getAttribute('type');
                 }
             }
         }
