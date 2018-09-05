@@ -39,7 +39,7 @@ class ResponseData
      */
     public function setResponseSsml($ssml)
     {
-        $this->json['outputSpeech'] = ['type'=>'PlainText', 'text'=>$ssml];
+        $this->json['outputSpeech'] = ['type'=>'SSML', 'ssml'=>$ssml];
     }
 
     /**
