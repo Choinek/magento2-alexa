@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:AlanKent_Alexa:etc/alexa/alexa_routers.xsd">
     <alexaRouter name="report" type="Global4Net\AlexaReport\App\AlexaReportApp">
         <intent value="OnlineCustomersReport"/>
-        <intent value="OrdersReport" />
         <intent value="SystemReport" />
+        <intent value="LoadingTimeReport" />
     </alexaRouter>
 </config>

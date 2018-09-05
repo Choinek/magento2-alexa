@@ -1,34 +1,127 @@
 {
-  "intents": [
-    {
-      "intent": "ReportOrderCount"
-    },
-    {
-      "intent": "FindNextOrder"
-    },
-    {
-      "intent": "FirstOrderItem"
-    },
-    {
-      "intent": "NextOrderItem"
-    },
-    {
-      "intent": "MarkOrderAsDone"
-    },
-
-
-    {
-      "intent": "CheckStockLevel",
-      "slots": [
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "mage",
+      "intents": [
         {
-          "name": "color",
-          "type": "COLOR"
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
         },
         {
-          "name": "item",
-          "type": "ITEM"
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "help"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "ReportOrderCount",
+          "slots": [],
+          "samples": [
+            "Report order count",
+            "Order count"
+          ]
+        },
+        {
+          "name": "FindNextOrder",
+          "slots": [],
+          "samples": [
+            "pack",
+            "pick",
+            "pick an order",
+            "pick next order",
+            "next order",
+            "find next order"
+          ]
+        },
+        {
+          "name": "FirstOrderItem",
+          "slots": [],
+          "samples": [
+            "first",
+            "start",
+            "start pack",
+            "start packing",
+            "start pick",
+            "start picking",
+            "first item",
+            "first order item"
+          ]
+        },
+        {
+          "name": "NextOrderItem",
+          "slots": [],
+          "samples": [
+            "next",
+            "next item",
+            "next order item"
+          ]
+        },
+        {
+          "name": "MarkOrderAsDone",
+          "slots": [],
+          "samples": [
+            "shipped",
+            "complete",
+            "done",
+            "mark order complete",
+            "mark order as complete",
+            "mark as done",
+            "mark order as done"
+          ]
+        },
+        {
+          "name": "OnlineCustomersReport",
+          "slots": [
+            {
+              "name": "minutes",
+              "type": "AMAZON.NUMBER"
+            },
+            {
+              "name": "hours",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "visitors in last {minutes} minutes",
+            "customers in last {minutes} minutes",
+            "customers in last {hours} hours",
+            "visitors in last {hours} hours",
+            "visitors",
+            "customers",
+            "customers online",
+            "visitors online",
+            "how many visitors have been online in the last {hours} hours",
+            "how many visitors have been online in the last {minutes} minutes"
+          ]
+        },
+        {
+          "name": "LoadingTimeReport",
+          "slots": [],
+          "samples": [
+            "loading time",
+            "performance",
+            "loading time report"
+          ]
+        },
+        {
+          "name": "SystemReport",
+          "slots": [],
+          "samples": [
+            "system",
+            "system report",
+            "memory report"
+          ]
         }
-      ]
+      ],
+      "types": []
     }
-  ]
+  }
 }
