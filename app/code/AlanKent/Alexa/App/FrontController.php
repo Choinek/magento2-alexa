@@ -152,7 +152,7 @@ class FrontController implements FrontControllerInterface
                 $slots = array();
                 if (isset($intent['slots'])) {
                     foreach ($intent['slots'] as $nameAndValue) {
-                        $slots[self::jsonGet($nameAndValue, 'name')] = self::jsonGet($nameAndValue, 'value');
+                        $slots[self::jsonGet($nameAndValue, 'name')] = self::jsonGet($nameAndValue, 'value', '0');
                     }
                 }
                 $responseData = $this->handler->intentRequest($sessionData, $customerData, $intentName, $slots);
